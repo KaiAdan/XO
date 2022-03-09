@@ -5,11 +5,13 @@ import com.company_javarush_lesson_5.map.Map;
 import com.company_javarush_lesson_5.map.RenderMap;
 import com.company_javarush_lesson_5.player.Player;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
 //создание игроков
         Player player_1 = new Player("Vasya");
         Player player_2 = new Player("Petya");
@@ -26,12 +28,8 @@ public class Main {
 
 //Запускаем игру
         GameLogic next = new GameLogic();
-        while (true) {
+        while (game.startGame) {
             next.gameNextStep(game, player_1, player_2);
         }
-
-
-
-
     }
 }

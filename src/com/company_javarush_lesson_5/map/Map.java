@@ -3,6 +3,7 @@ package com.company_javarush_lesson_5.map;
 public class Map {
     private String[][] gameField;
     private int fieldSize;
+    public boolean startGame = true;
 
     public void newMap(int size){
         this.fieldSize = size;
@@ -16,4 +17,5 @@ public class Map {
     public int getGameFieldSize(){
         return fieldSize;
     }
+
 }

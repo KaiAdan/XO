@@ -10,6 +10,7 @@ public class Player {
 
     private static int step = 0;
     private static String symbol = "X";
+    public int[] lastChoise = new int[2];
 
     public Player(String name){
         this.name = name;
@@ -21,8 +22,10 @@ public class Player {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Choice row: ");
         cell[0] = scanner.nextInt();
+        lastChoise[0] = cell[0];
         System.out.print("Choice col: ");
         cell[1] = scanner.nextInt();
+        lastChoise[1] = cell[1];
         game.getGameField()[cell[0]][cell[1]] = symbol;
         switchPlayer();
         return cell;
@@ -37,6 +40,7 @@ public class Player {
             if (step == 0){
                 step = 1;
                 symbol = "O";
+//                symbol = "X";
             }
             else {
                 step = 0;
