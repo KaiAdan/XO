@@ -16,15 +16,14 @@ public class Player {
         countPlayer++;
     }
 
-    public int[] choiceCell(){
+    public int[] choiceCell(Map game){
         int cell[] = new int[2];
         Scanner scanner = new Scanner(System.in);
         System.out.print("Choice row: ");
         cell[0] = scanner.nextInt();
         System.out.print("Choice col: ");
         cell[1] = scanner.nextInt();
-
-
+        game.getGameField()[cell[0]][cell[1]] = symbol;
         switchPlayer();
         return cell;
     }

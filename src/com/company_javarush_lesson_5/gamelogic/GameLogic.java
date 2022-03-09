@@ -9,6 +9,7 @@ public class GameLogic {
     private int stepGame = 0;
     private int[] choiceCellByPlayer;
     private RenderMap render = new RenderMap();
+    private Map game;
 
     public int[] getChoiceCellByPlayer() {
         return choiceCellByPlayer;
@@ -19,6 +20,7 @@ public class GameLogic {
     }
 
     public void gameNextStep(Map game, Player player_1, Player player_2){
+        this.game = game;
         Player player;
         if (Player.getStep() == 1){
             player = player_2;
@@ -26,16 +28,14 @@ public class GameLogic {
         else {
             player = player_1;
         }
-        this.render.render(game);
-        choiceCellByPlayer(player);
 
-        VerificationWin win = new VerificationWin();
-        win.checkWin(choiceCellByPlayer, render.getMap());
+        player.choiceCell(game);
+
+        this.render.renderMap(game);
+
+
+//        VerificationWin win = new VerificationWin();
+//        win.checkWin(choiceCellByPlayer, render.getMap());
 
     }
-
-    public void choiceCellByPlayer(Player player){
-        this.choiceCellByPlayer = player.choiceCell();
-    }
-
 }
